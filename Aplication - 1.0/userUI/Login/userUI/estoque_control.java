@@ -6,40 +6,40 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+@SuppressWarnings("serial")
 public class estoque_control extends JFrame implements ActionListener {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private JTextField entradaField;
+    private JTextField nomeField;
+    private JTextField entradaField;
     private JTextField saidaField;
     private DefaultListModel<String> produtosListModel;
     private JList<String> produtosList;
     private ArrayList<Produto> produtos;
-    
-    public void initialize() {
- 		// TODO Auto-generated method stub
- 		
- 	}
 
     public estoque_control() {
         setTitle("Controle de Estoque");
-        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+
+        JPanel panelNome = new JPanel(new GridLayout(1, 2));
+        JLabel nomeLabel = new JLabel("Nome do Produto:");
+        nomeField = new JTextField(10);
+        panelNome.add(nomeLabel);
+        panelNome.add(nomeField);
+        add(panelNome, BorderLayout.NORTH);
 
         JPanel panelEntradaSaida = new JPanel(new GridLayout(2, 2));
 
         JLabel entradaLabel = new JLabel("Entrada:");
-        entradaField = new JTextField(10);
+        entradaField = new JTextField(15);
         JLabel saidaLabel = new JLabel("Saída:");
-        saidaField = new JTextField(10);
+        saidaField = new JTextField(15);
 
         panelEntradaSaida.add(entradaLabel);
         panelEntradaSaida.add(entradaField);
         panelEntradaSaida.add(saidaLabel);
         panelEntradaSaida.add(saidaField);
 
-        add(panelEntradaSaida, BorderLayout.NORTH);
+        add(panelEntradaSaida, BorderLayout.CENTER);
 
         JButton btnEntrada = new JButton("Registrar Entrada");
         btnEntrada.addActionListener(this);
@@ -50,14 +50,14 @@ public class estoque_control extends JFrame implements ActionListener {
         panelBotoes.add(btnEntrada);
         panelBotoes.add(btnSaida);
 
-        add(panelBotoes, BorderLayout.CENTER);
+        add(panelBotoes, BorderLayout.SOUTH);
 
         produtos = new ArrayList<>();
         produtosListModel = new DefaultListModel<>();
         produtosList = new JList<>(produtosListModel);
 
         JScrollPane scrollPane = new JScrollPane(produtosList);
-        add(scrollPane, BorderLayout.SOUTH);
+        add(scrollPane, BorderLayout.EAST);
 
         pack();
         setLocationRelativeTo(null);
@@ -65,10 +65,17 @@ public class estoque_control extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String nome = nomeField.getText();
+
+        if (nome.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Digite o nome do produto.");
+            return;
+        }
+
         if (e.getActionCommand().equals("Registrar Entrada")) {
             try {
                 int quantidade = Integer.parseInt(entradaField.getText());
-                adicionarProduto("Produto", quantidade);
+                adicionarProduto(nome, quantidade);
                 atualizarListaProdutos();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Digite um número válido para a entrada.");
@@ -76,7 +83,7 @@ public class estoque_control extends JFrame implements ActionListener {
         } else if (e.getActionCommand().equals("Registrar Saída")) {
             try {
                 int quantidade = Integer.parseInt(saidaField.getText());
-                removerProduto("Produto", quantidade);
+                removerProduto(nome, quantidade);
                 atualizarListaProdutos();
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Digite um número válido para a saída.");
@@ -114,7 +121,7 @@ public class estoque_control extends JFrame implements ActionListener {
         if (produto == null) {
             produto = new Produto(nome);
             produtos.add(produto);
-            produtosListModel.addElement(nome.toString());
+            produtosListModel.addElement(produto.toString());
         }
         return produto;
     }
@@ -164,7 +171,6 @@ class Produto {
     }
 }
 
-@SuppressWarnings("serial")
 class EstoqueInsuficienteException extends Exception {
     // Exceção para indicar que o estoque é insuficiente para a saída solicitada
 }
