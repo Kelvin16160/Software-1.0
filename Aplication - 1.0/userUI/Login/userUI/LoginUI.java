@@ -140,15 +140,15 @@ class LoginUI {
 					ResultSet rsResultSet = user.authentication01(User);
 					if (rsResultSet.next()) {
 						JOptionPane.showMessageDialog(null, "Bem vindo!");
-						txtLogin.setText(null);
-						txtSenha.setText(null);
+						txtLogin.setText("");
+						txtSenha.setText("");
 						frmUsuario.setVisible(false);
 						app_main main = new app_main();
 						main.initialize();
 
 					} else {
-						txtLogin.setText(null);
-						txtSenha.setText(null);
+						txtLogin.setText("");
+						txtSenha.setText("");
 						JOptionPane.showMessageDialog(null, "Dados invalidos");
 					}
 				} catch (SQLException error) {
