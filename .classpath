@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Aplication - 1.0/DAO"/>
+	<classpathentry kind="src" path="Aplication - 1.0/DTO"/>
+	<classpathentry kind="src" path="Aplication - 1.0/userUI"/>
+	<classpathentry kind="lib" path="Aplication - 1.0/jgoodies-forms-1.8.0.jar"/>
+	<classpathentry kind="lib" path="Aplication - 1.0/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="Aplication - 1.0/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="Aplication - 1.0/mysql-connector-j-8.1.0.jar"/>
+	<classpathentry kind="output" path="Aplication - 1.0/bin"/>
+</classpath>
