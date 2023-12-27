@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 
 
-public class app_main {
+class app_main {
 
 	/**
 	 * @wbp.parser.entryPoint

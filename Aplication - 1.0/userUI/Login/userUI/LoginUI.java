@@ -22,7 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import userDAO.UserDAO;
 import userDTO.UserDTO;
 
-class LoginUI {
+public class LoginUI {
 	/**
 	 * @wbp.parser.entryPoint
 	 */

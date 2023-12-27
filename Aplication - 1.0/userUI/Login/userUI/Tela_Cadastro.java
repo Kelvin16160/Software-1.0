@@ -10,8 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static javax.swing.JOptionPane.showMessageDialog;
-
-public  class Tela_Cadastro{
+class Tela_Cadastro{
 	
 	/**
 	 * @wbp.parser.entryPoint

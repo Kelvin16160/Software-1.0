@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 @SuppressWarnings("serial")
-public class estoque_control extends JFrame implements ActionListener {
+class estoque_control extends JFrame implements ActionListener {
     private JTextField nomeField;
     private JTextField entradaField;
     private JTextField saidaField;
