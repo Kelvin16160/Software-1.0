@@ -71,7 +71,7 @@ class LoginUI {
 		frmUsuario.setResizable(false);
 		frmUsuario.setAlwaysOnTop(true);
 		frmUsuario.getContentPane().setEnabled(false);
-		
+		frmUsuario.setDefaultCloseOperation(0);
 		frmUsuario.setFocusTraversalKeysEnabled(false);
 		frmUsuario.setAutoRequestFocus(true);
 		frmUsuario
