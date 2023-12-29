@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
@@ -131,7 +132,6 @@ class LoginUI {
 		});
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				try {
 					UserDTO User = new UserDTO();
 					User.setUsuario(txtLogin.getText());
@@ -143,9 +143,15 @@ class LoginUI {
 						txtLogin.setText("");
 						txtSenha.setText("");
 						frmUsuario.setVisible(false);
-						app_main main = new app_main();
-						main.initialize();
+						progressbar barra = new progressbar(0);
+						if (barra.progress.getValue() == 100)  {	
+							JOptionPane.showMessageDialog(null, barra.progress.getValue());
+							app_main main = new app_main();
+							main.initialize();
+							
+						} else {
 
+						}
 					} else {
 						txtLogin.setText("");
 						txtSenha.setText("");

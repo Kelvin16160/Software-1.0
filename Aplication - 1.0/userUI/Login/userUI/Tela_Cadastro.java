@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import static javax.swing.JOptionPane.showMessageDialog;
 class Tela_Cadastro{
 	

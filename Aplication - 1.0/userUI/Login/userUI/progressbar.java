@@ -1,25 +1,49 @@
 package Login.userUI;
-
+import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JProgressBar;
 
-public class progressbar extends JFrame {
-	public JFrame barra;
-	public progressbar(){
-		progressconfig();
+class progressbar {
+
+	JProgressBar progress = new JProgressBar();
+	JFrame frame = new JFrame();
+
+	public progressbar(int temp) {
+		janelaconfig();
+		progress.setBounds(40, 40, 500, 50);
+		progress.setStringPainted(true);
+		progress.setValue(temp);
+		progress.setMaximum(100);
+		progress.setForeground(new Color(50, 200, 50));
+		new temp().start();
+
 	}
-public void progressconfig (){
 
-	setTitle("Carregamento");
-	setVisible(true);
-	setSize(300, 120);
-	setLocationRelativeTo(null);
-	setLayout(null);
-	setDefaultCloseOperation(EXIT_ON_CLOSE);
+	public void janelaconfig() {
 
-	
-}
+		frame.setTitle("Carregamento");
+		frame.setVisible(true);
+		frame.setSize(600, 170);
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(null);
+		frame.add(progress);
 
-public static void main(String[] args ) {
-	new progressbar();
-}
+	}
+
+	public class temp extends Thread {
+		public void run() {
+			while (progress.getValue() < 100) {
+				try {
+					sleep(45);
+					progress.setValue(progress.getValue() + 10);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+			
+			
+		}
+
+	}
 }
