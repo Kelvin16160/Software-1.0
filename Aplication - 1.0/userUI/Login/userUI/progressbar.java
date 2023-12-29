@@ -35,7 +35,7 @@ class progressbar {
 
 	public class temp extends Thread {
 		public void run() {
-			while (progress.getValue() < 100) {
+			while (progress.getValue() <= 100) {
 				try {
 					sleep(45);
 					progress.setValue(progress.getValue() + 10);
