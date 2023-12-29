@@ -5,7 +5,7 @@ import javax.swing.JProgressBar;
 
 import java.awt.Font;
 
-class progressbar {
+class progressbar extends LoginUI {
 
 	JProgressBar progress = new JProgressBar();
 	JFrame frame = new JFrame();
@@ -26,7 +26,7 @@ class progressbar {
 
 		frame.setTitle("Carregamento");
 		frame.setVisible(true);
-		frame.setSize(601, 170);
+		frame.setSize(600, 170);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(progress);
