@@ -23,10 +23,10 @@ class progressbar {
 
 		frame.setTitle("Carregamento");
 		frame.setVisible(true);
-		frame.setSize(600, 170);
+		frame.setSize(623, 170);
 		frame.setLocationRelativeTo(null);
-		frame.setLayout(null);
-		frame.add(progress);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(progress);
 
 	}
 
