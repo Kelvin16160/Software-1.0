@@ -3,16 +3,19 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JProgressBar;
 
+import java.awt.Font;
+
 class progressbar {
 
 	JProgressBar progress = new JProgressBar();
 	JFrame frame = new JFrame();
 
-	public progressbar(int temp) {
+	public progressbar() {
 		janelaconfig();
+		progress.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
 		progress.setBounds(40, 40, 500, 50);
 		progress.setStringPainted(true);
-		progress.setValue(temp);
+		progress.setValue(0);
 		progress.setMaximum(100);
 		progress.setForeground(new Color(50, 200, 50));
 		new temp().start();
@@ -23,7 +26,7 @@ class progressbar {
 
 		frame.setTitle("Carregamento");
 		frame.setVisible(true);
-		frame.setSize(623, 170);
+		frame.setSize(601, 170);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setLayout(null);
 		frame.getContentPane().add(progress);
@@ -36,7 +39,8 @@ class progressbar {
 				try {
 					sleep(45);
 					progress.setValue(progress.getValue() + 10);
-				} catch (Exception e) {
+				}
+				catch (Exception e) {
 					e.printStackTrace();
 				}
 

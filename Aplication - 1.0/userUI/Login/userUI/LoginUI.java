@@ -143,7 +143,7 @@ class LoginUI {
 						txtLogin.setText("");
 						txtSenha.setText("");
 						frmUsuario.setVisible(false);
-						progressbar barra = new progressbar(0);
+						progressbar barra = new progressbar();
 						if (barra.progress.getValue() == 100)  {	
 							JOptionPane.showMessageDialog(null, barra.progress.getValue());
 							app_main main = new app_main();
