@@ -10,8 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 
-
 class app_main {
+	private estoque_control control = new estoque_control();
+	private app_calc calc = new app_calc();
 
 	/**
 	 * @wbp.parser.entryPoint
@@ -26,7 +27,6 @@ class app_main {
 		JButton estoque = new JButton("Estoque");
 		estoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				estoque_control control = new estoque_control();
 				control.setVisible(true);
 			}
 		});
@@ -37,7 +37,6 @@ class app_main {
 		JButton Calc = new JButton("Calculadora");
 		Calc.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				app_calc calc = new app_calc();
 				calc.setVisible(true);
 			}
 		});
