@@ -138,7 +138,7 @@ class LoginUI {
 					User.setSenha(txtSenha.getText());
 					UserDAO user = new UserDAO();
 					ResultSet rsResultSet = user.authentication01(User);
-					barra.bar();
+					barra.janelaconfig();
 					if (rsResultSet.next()) {
 						JOptionPane.showMessageDialog(null, "Bem vindo!");
 						txtLogin.setText("");

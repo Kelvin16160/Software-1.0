@@ -27,10 +27,21 @@ class progressbar {
 		}
 
 	}
-
+	/**
+	 * @wbp.parser.entryPoint
+	 */
+	public void janelaconfig() {
+		bar();
+		frame.setTitle("Carregamento");
+		frame.setVisible(true);
+		frame.setSize(619, 185);
+		frame.setLocationRelativeTo(null);
+		frame.getContentPane().setLayout(null);
+		frame.getContentPane().add(progress);
+		
+	}
 	public void bar() {
 		new temp().start();
-		janelaconfig();
 		progress.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
 		progress.setBounds(40, 40, 500, 50);
 		progress.setStringPainted(true);
@@ -40,16 +51,6 @@ class progressbar {
 
 	}
 
-	public void janelaconfig() {
-
-		frame.setTitle("Carregamento");
-		frame.setVisible(true);
-		frame.setSize(600, 170);
-		frame.setLocationRelativeTo(null);
-		frame.getContentPane().setLayout(null);
-		frame.getContentPane().add(progress);
-
-	}
 
 	/*
 	 * public static void main(String[] args) { progressbar barra = new
