@@ -32,6 +32,9 @@ class LoginUI {
 	private static JTextField txtSenha;
 	private static JLabel lblLogin;
 	private static JLabel lblSenha;
+	public static progressbar barra = new progressbar();
+	public static UserDTO User = new UserDTO();
+	public static app_main main = new app_main();
 
 	public static void main(String[] args) {
 		try {
@@ -60,8 +63,6 @@ class LoginUI {
 		});
 	}
 
-
-
 	/**
 	 * @wbp.parser.entryPoint
 	 */
@@ -77,8 +78,7 @@ class LoginUI {
 		frmUsuario.setDefaultCloseOperation(0);
 		frmUsuario.setFocusTraversalKeysEnabled(false);
 		frmUsuario.setAutoRequestFocus(true);
-		frmUsuario
-				.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Imagens\\Sem título (2).png"));
+		frmUsuario.setIconImage(Toolkit.getDefaultToolkit().getImage("D:\\Imagens\\Sem título (2).png"));
 		frmUsuario.getContentPane().setBackground(new Color(125, 128, 128));
 		frmUsuario.setBounds(100, 100, 437, 297);
 		frmUsuario.getContentPane().setLayout(null);
@@ -113,9 +113,8 @@ class LoginUI {
 		JButton btnCadastro = new JButton("Cadastro");
 		btnCadastro.setBounds(247, 54, 103, 28);
 		frmUsuario.getContentPane().add(btnCadastro);
-		btnCadastro.setSelectedIcon(
-				new ImageIcon("C:\\Users\\K3lvin\\Downloads\\fast-forward.png"));
-		
+		btnCadastro.setSelectedIcon(new ImageIcon("C:\\Users\\K3lvin\\Downloads\\fast-forward.png"));
+
 		JButton close = new JButton();
 		close.setText("Exit");
 		close.setSelectedIcon(new ImageIcon("C:\\Users\\K3lvin\\Downloads\\3541911.png"));
@@ -135,29 +134,25 @@ class LoginUI {
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					UserDTO User = new UserDTO();
 					User.setUsuario(txtLogin.getText());
 					User.setSenha(txtSenha.getText());
 					UserDAO user = new UserDAO();
 					ResultSet rsResultSet = user.authentication01(User);
+					barra.bar();
 					if (rsResultSet.next()) {
 						JOptionPane.showMessageDialog(null, "Bem vindo!");
 						txtLogin.setText("");
 						txtSenha.setText("");
 						frmUsuario.setVisible(false);
-						progressbar barra = new progressbar();
-						if (barra.progress.getValue() == 100)  {	
-							JOptionPane.showMessageDialog(null, barra.progress.getValue());
-							app_main main = new app_main();
-							main.initialize();
-							
-						} else {
-
-						}
+						main.initialize();
+						barra.progress.setVisible(false);
+						barra.frame.setVisible(false);
 					} else {
 						txtLogin.setText("");
 						txtSenha.setText("");
 						JOptionPane.showMessageDialog(null, "Dados invalidos");
+					   barra.progress.setVisible(false);
+					   barra.frame.setVisible(false);
 					}
 				} catch (SQLException error) {
 					JOptionPane.showMessageDialog(null, error);

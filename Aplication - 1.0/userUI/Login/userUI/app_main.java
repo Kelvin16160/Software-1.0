@@ -20,7 +20,7 @@ class app_main {
 	public void initialize() {
 		JFrame frame = new JFrame();
 		frame.setBounds(100, 100, 590, 345);
-		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JButton estoque = new JButton("Estoque");
